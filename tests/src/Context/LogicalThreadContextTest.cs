@@ -17,6 +17,7 @@
 //
 #endregion
 
+#if NET_4_5
 using System;
 using System.Threading.Tasks;
 using System.Linq;
@@ -31,7 +32,6 @@ using NUnit.Framework;
 
 namespace log4net.Tests.Context
 {
-#if NET_4_5
 	/// <summary>
 	/// Used for internal unit testing the <see cref="LogicalThreadContext"/> class.
 	/// </summary>
@@ -340,5 +340,5 @@ namespace log4net.Tests.Context
 			}
 		}
 	}
-#endif
 }
+#endif
