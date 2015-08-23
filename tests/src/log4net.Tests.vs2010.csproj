@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 
  Licensed to the Apache Software Foundation (ASF) under one
@@ -148,6 +148,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Appender\EventLogAppenderTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Appender\MemoryAppenderTest.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Appender\RemotingAppenderTest.cs">
