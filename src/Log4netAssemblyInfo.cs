@@ -25,13 +25,17 @@ namespace log4net {
     /// </summary>
     public sealed class AssemblyInfo {
         /// <summary>Version of the assembly</summary>
-        public const string Version = "1.2.13";
+        public const string Version = "1.2.14";
 
         /// <summary>Version of the framework targeted</summary>
 #if NET_1_1
         public const decimal TargetFrameworkVersion = 1.1M;
-#elif NET_4_0
+#elif NET_4_5
+        public const decimal TargetFrameworkVersion = 4.5M;
+#elif NET_4_0 || MONO_4_0
         public const decimal TargetFrameworkVersion = 4.0M;
+#elif MONO_3_5
+        public const decimal TargetFrameworkVersion = 3.5M;
 #elif NET_2_0 || NETCF_2_0 || MONO_2_0
 #if !CLIENT_PROFILE
         public const decimal TargetFrameworkVersion = 2.0M;
