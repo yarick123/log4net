@@ -393,6 +393,7 @@ limitations under the License.
             <references defaultexcludes="true">
                 <!-- include name="mscorlib.dll" / -->
                 <include name="System.dll" />
+                <include name="System.Core.dll" />
                 <include name="System.Data.dll" />
                 <include name="System.Web.dll" />
                 <include name="System.Xml.dll" />
@@ -448,6 +449,7 @@ limitations under the License.
             <references defaultexcludes="true">
                 <!-- include name="mscorlib.dll" / -->
                 <include name="System.dll" />
+                <include name="System.Core.dll" />
                 <include name="System.Data.dll" />
                 <include name="System.Web.dll" />
                 <include name="System.Xml.dll" />

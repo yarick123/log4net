@@ -33,6 +33,8 @@ namespace log4net {
 #elif NET_4_5
         public const decimal TargetFrameworkVersion = 4.5M;
 #elif NET_4_0 || MONO_4_0
+        public const decimal TargetFrameworkVersion = 4.5M;
+#elif FRAMEWORK_4_0_OR_ABOVE
         public const decimal TargetFrameworkVersion = 4.0M;
 #elif MONO_3_5
         public const decimal TargetFrameworkVersion = 3.5M;
