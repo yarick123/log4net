@@ -111,7 +111,7 @@ namespace log4net.Appender
 		public string To
 		{
 			get { return m_to; }
-			set { m_to = value; }
+			set { m_to = MaybeTrimSeparators(value); }
 		}
 
         /// <summary>
@@ -137,7 +137,7 @@ namespace log4net.Appender
         public string Cc
         {
             get { return m_cc; }
-            set { m_cc = value; }
+            set { m_cc = MaybeTrimSeparators(value); }
         }
 
         /// <summary>
@@ -155,7 +155,7 @@ namespace log4net.Appender
         public string Bcc
         {
             get { return m_bcc; }
-            set { m_bcc = value; }
+            set { m_bcc = MaybeTrimSeparators(value); }
         }
 
 		/// <summary>
@@ -646,7 +646,16 @@ namespace log4net.Appender
 		}
 
 		#endregion // SmtpAuthentication Enum
-	}
+
+            private static readonly char[] ADDRESS_DELIMITERS = new char[] { ',', ';' };
+            
+            /// <summary>
+            ///   trims leading and trailing commas or semicolons
+            /// </summary>
+            private static string MaybeTrimSeparators(string s) {
+                return string.IsNullOrEmpty(s) ? s : s.Trim(ADDRESS_DELIMITERS);
+            }
+        }
 }
 
 #endif // !NETCF && !SSCLI
