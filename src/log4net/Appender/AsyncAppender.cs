@@ -19,7 +19,7 @@
 
 using System;
 using System.Collections.Generic;
-#if FRAMEWORK_4_0_OR_ABOVE
+#if HAS_TPL
 using System.Threading.Tasks;
 #else
 using System.Threading;
@@ -46,7 +46,7 @@ namespace log4net.Appender
         /// </summary>
         public AsyncAppender()
         {
-#if FRAMEWORK_4_0_OR_ABOVE
+#if HAS_TPL
             logTask = new Task(() => { });
             logTask.Start();
 #endif
@@ -92,7 +92,7 @@ namespace log4net.Appender
                 }
                 events.Add(loggingEvent);
             }
-#if FRAMEWORK_4_0_OR_ABOVE
+#if HAS_TPL
             logTask.ContinueWith(AsyncAppend);
 #else
             ThreadPool.QueueUserWorkItem(AsyncAppend, null);
@@ -122,7 +122,7 @@ namespace log4net.Appender
                 }
                 events.AddRange(loggingEvents);
             }
-#if FRAMEWORK_4_0_OR_ABOVE
+#if HAS_TPL
             logTask.ContinueWith(AsyncAppend);
 #else
             ThreadPool.QueueUserWorkItem(AsyncAppend, null);
@@ -145,7 +145,7 @@ namespace log4net.Appender
         {
             lock (lockObject)
             {
-#if FRAMEWORK_4_0_OR_ABOVE
+#if HAS_TPL
                 if (!closed)
                 {
                     logTask.Wait();
@@ -158,7 +158,7 @@ namespace log4net.Appender
 
         private void AsyncAppend(object _ignored)
         {
-#if FRAMEWORK_4_0_OR_ABOVE // ContinueWith already ensures there is only one thread executing this method at a time
+#if HAS_TPL // ContinueWith already ensures there is only one thread executing this method at a time
             ForwardEvents();
 #else
             lock (lockObject)
@@ -213,7 +213,7 @@ namespace log4net.Appender
         private readonly object lockObject = new object();
         private readonly List<LoggingEvent> events = new List<LoggingEvent>();
         private bool closed = false;
-#if FRAMEWORK_4_0_OR_ABOVE
+#if HAS_TPL
         private readonly Task logTask;
 #else
         private bool inLoggingLoop = false;

@@ -17,7 +17,7 @@
 //
 #endregion
 
-#if FRAMEWORK_4_5_OR_ABOVE
+#if HAS_ASYNC_AWAIT
 using System;
 using System.Threading.Tasks;
 using System.Linq;
