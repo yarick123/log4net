@@ -1207,7 +1207,7 @@ namespace log4net.Appender
 		/// If fileIsOpen is set then the new file is opened (through SafeOpenFile).
 		/// </para>
 		/// </remarks>
-		protected void RollOverTime(bool fileIsOpen) 
+		virtual protected void RollOverTime(bool fileIsOpen) 
 		{
 			if (m_staticLogFileName) 
 			{
